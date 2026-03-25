@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head>
+    <title>Students</title>
+    <link
+      rel="stylesheet"
+      href="{{ url_for('static', filename='style.css') }}"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <h1>All Students</h1>
+
+      {% if students %} {% for student in students %}
+      <div class="student">
+        <strong>Name:</strong> {{ student.name }} <br />
+        <strong>ID:</strong> {{ student.student_id }} <br />
+        <strong>GPA:</strong> {{ student.gpa }} <br />
+        <strong>Major:</strong> {{ student.major }}
+      </div>
+      {% endfor %} {% else %}
+      <p class="empty">No students registered yet.</p>
+      {% endif %}
+
+      <br />
+      <a href="/register">➕ Register New Student</a>
+    </div>
+  </body>
+</html>
